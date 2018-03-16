@@ -1,6 +1,6 @@
 # Sprint Challenge: Processes and Scheduling
 
-## Multiple Choice and Short Answer Questions
+# Multiple Choice and Short Answer Questions
 
 Add your answers inline, below, with your pull request.
 
