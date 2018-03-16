@@ -11,7 +11,7 @@
 
 ### What is a Zombie Process? How does it get created? How does it get destroyed?
 
-* S Zombie Process is a process that has completed execution (via the EXIT system call) but still has an entry in the process table: it is a process in the "Terminated state". 
+* A Zombie Process is a process that has completed execution (via the EXIT system call) but still has an entry in the process table: it is a process in the "Terminated state". 
 
 * A Zombie Process is created by child processes where the entry is still needed to allow the parent process to read its child's exit status:
 
@@ -28,5 +28,7 @@
 * Benefits of MLFQ - They are good for seperating processes into categories based on their need for a CPU. They favor I/O bound processes by letting them run often. Versions of this scheduling policy that increase the quantum at lower priority levels also favor CPU bound processes by giving them a bigger chunk of CPU time when they are allowed to run.
 
 * Benefits of Round Robin Scheduling -  Round robin scheduling is fair in that every process gets an equal share of the CPU. It is easy to implement and, if we know the number of processes on the run queue, we can know the worst-case response time for a process. Cons -  Giving every process an equal share of the CPU is not always a good idea. For instance, highly interactive processes will get scheduled no more frequently than CPU-bound processes.
+
+Round robin scheduler -priority.
 
 

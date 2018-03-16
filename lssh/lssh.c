@@ -2,14 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/wait.h>
 
 #define PROMPT "lambda-shell$ "
 
 #define MAX_TOKENS 100
 #define COMMANDLINE_BUFSIZE 1024
-#define DEBUG 1 // Set to 1 to turn on some debugging output, or 0 to turn off
+#define DEBUG 0 // Set to 1 to turn on some debugging output, or 0 to turn off
 
 /**
  * Parse the command line.
@@ -96,16 +95,15 @@ int main(void)
             break;
         }
         
-        pid_t pid = fork(); // Fork a child process to run the new command.
-        if (pid == -1)
+        pid_t child_pid = fork(); // Fork a child process to run the new command.
+        if (child_pid == -1)
         {
             printf("YOU FAILED TO FORK \n"); // print out an error 
-            // exit(1); (DO I NEED THIS???)
+            exit(1); 
         }
-        else if (pid > 0) // otherwise run this
+        else if (child_pid > 0) // otherwise run this
         {
-            int status;
-            waitpid(pid, &status, 0); 
+            wait(NULL);
         }
         else
         {
